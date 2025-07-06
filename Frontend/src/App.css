@@ -1,0 +1,7 @@
+.custom-snackbar{
+    top: 90px !important; /*70px below the navbar*/
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
