@@ -41,6 +41,7 @@ This project was developed as part of my academic journey to build scalable, pro
 ##  Installation
 
 1. **Clone the repository**
+```bash
 git clone https://github.com/yourusername/TopNewsNow.git
 2.Setup the backend
 cd TopNewsNow/Backend
