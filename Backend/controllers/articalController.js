@@ -14,10 +14,11 @@ const saveArtical =  async (req, res) => {
     try {
 
         const userData = await userModel.findById(userId)
-
         if (!userData) {
             return res.json({ success: false, message: "User not found" })
         }
+        const articalExist = await userModel.find({email: userData.email, 'news.url': artical.url})
+        if(articalExist) return res.json({success:false, message:"This artical already saved"})
 
         userData.news.push(artical)
 
@@ -62,7 +63,7 @@ const deleteArtical = async(req,res)=>{
 
         const updatedUser = await userModel.findByIdAndUpdate(
             userId,
-            {$pull:{news:{url:url}}},
+            {$pull:{news:{url:url}}}, //Using $pull to remove from the news array any item where url matches the given url.
             {new: true}  // return updated user
         )
         if(!updatedUser){
