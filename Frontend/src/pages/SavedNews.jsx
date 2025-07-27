@@ -66,7 +66,7 @@ const SavedNews = () => {
             const response = await axios.delete(backendUrl + '/artical/remove',{data:{url:url},headers:{token:token}})
             if(response.data.success){
                 enqueueSnackbar(response.data.message,{variant: 'success'})
-                window.location.reload();
+                setArticals((prev) => prev.filter((item) => item.url !== url));
             }
             else{
                 enqueueSnackbar(response.data.message,{variant: 'error'})

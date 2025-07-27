@@ -17,7 +17,7 @@ const saveArtical =  async (req, res) => {
         if (!userData) {
             return res.json({ success: false, message: "User not found" })
         }
-        const articalExist = await userModel.find({email: userData.email, 'news.url': artical.url})
+        const articalExist = await userModel.findOne({email: userData.email, news: {$elemMatch:{url: artical.url}}},{ _id: 1 })
         if(articalExist) return res.json({success:false, message:"This artical already saved"})
 
         userData.news.push(artical)
