@@ -142,7 +142,7 @@ const Navbar = () => {
                             variant="h5"
                             noWrap
                             component="a"
-                            href="http://localhost:5173/"
+                            href="https://topnewsnow-frontend.onrender.com"
                             sx={{
                                 mr: 2,
                                 display: { xs: 'flex', md: 'none' },
